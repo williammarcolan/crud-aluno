@@ -1,5 +1,5 @@
 <?php
-require_once "./classes/Database.php";
+
 class Professor{
     private $codigo;
     private $nome;

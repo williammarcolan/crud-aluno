@@ -1,18 +1,6 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-        <title>Professores</title>
-    </head>
-<body>
     <h1>Professores</h1>
 <?php
-include "./classes/Professor.php";
-include "./classes/Turma.php";
+
 
 #----------Processamento dos dados recebidos do formulário ------
 if(isset($_GET['acao'])){
@@ -79,8 +67,8 @@ if(!isset($professor)){
 #------Formulário para cadastrar umA nova Turma/*99//////------------------
 ?>
 <div class="container-fluid">
-    <h2> Cadastro de professores</h2>
-    <form name="form-professor" method="POST" action="?acao=salvar">
+    <h2> Cadastro de Professores</h2>
+    <form name="form-professor" method="POST" action="?pagina=professores&acao=salvar">
         <input type="hidden" name="codigo_professor" value="<?php echo $professor->getCodigo()?>"/>
 
         <div class="input-group mb-2">
@@ -117,10 +105,10 @@ if(!isset($professor)){
                     <td>{$professor->getNome()}</td>
                     <td>
                         <span class='badge rounded-pill bg-primary'>
-                            <a href='?acao=editar&codigo={$professor->getCodigo()}' style='color:#fff'><i class='bi bi-pencil-square'></i></a>
+                            <a href='?pagina=professores&acao=editar&codigo={$professor->getCodigo()}' style='color:#fff'><i class='bi bi-pencil-square'></i></a>
                         </span>
                         <span class='badge rounded-pill bg-danger'>
-                            <a href='?acao=excluir&codigo={$professor->getCodigo()}'style='color:#fff'><i class='bi bi-trash'></i></a>
+                            <a href='?pagina=professores&acao=excluir&codigo={$professor->getCodigo()}'style='color:#fff'><i class='bi bi-trash'></i></a>
                         </span>
                     </td>
                     </tr>";

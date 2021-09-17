@@ -1,19 +1,5 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-        <title>Alunos</title>
-    </head>
-<body>
     <h1>Alunos</h1>
 <?php
-include "./classes/Professor.php";
-include "./classes/Turma.php";
-include "./classes/Aluno.php";
 
 #----------Processamento dos dados recebidos do formulário ------
 if(isset($_GET['acao'])){
@@ -84,7 +70,7 @@ if(!isset($aluno)){
 ?>
 <div class="container-fluid">
     <h2> Cadastro de Alunos</h2>
-    <form name="form-aluno" method="POST" action="?acao=salvar">
+    <form name="form-aluno" method="POST" action="?pagina=alunos&acao=salvar">
         <input type="hidden" name="codigo_aluno" value="<?php echo $aluno->getCodigo()?>"/>
         <div class="input-group mb-2">
             <span class="input-group-text" >Nome do Aluno:</span>
@@ -92,7 +78,7 @@ if(!isset($aluno)){
         </div>
         <div class="input-group mb-2">
             <span class="input-group-text" >Matrícula:</span>
-            <input type="text" class="form-control" id="matricula-aluno" name="matricula-aluno"  value="<?php echo $aluno->getMatricula() ?>" >
+            <input type="number" class="form-control" id="matricula-aluno" name="matricula-aluno"  value="<?php echo $aluno->getMatricula() ?>" >
         </div>
         
         <div class="input-group mb-2 mb-2"> 
@@ -145,10 +131,10 @@ if(!isset($aluno)){
                     <td>{$aluno->getTurma()->getProfessor()->getNome()}</td>
                     <td>
                         <span class='badge rounded-pill bg-primary'>
-                            <a href='?acao=editar&codigo={$aluno->getCodigo()}' style='color:#fff'><i class='bi bi-pencil-square'></i></a>
+                            <a href='?pagina=alunos&acao=editar&codigo={$aluno->getCodigo()}' style='color:#fff'><i class='bi bi-pencil-square'></i></a>
                         </span>
                         <span class='badge rounded-pill bg-danger'>
-                            <a href='?acao=excluir&codigo={$aluno->getCodigo()}'style='color:#fff'><i class='bi bi-trash'></i></a>
+                            <a href='?pagina=alunos&acao=excluir&codigo={$aluno->getCodigo()}'style='color:#fff'><i class='bi bi-trash'></i></a>
                         </span>
                     </td>
                     </tr>";
